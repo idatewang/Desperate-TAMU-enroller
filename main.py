@@ -3,18 +3,20 @@ from selenium import webdriver
 import time
 import random
 from selenium.webdriver.chrome.options import Options
+
+
 chrome_options = Options()
+# automates headless Chrome brower
 chrome_options.add_argument("--headless")
 
 driver = webdriver.Chrome(options=chrome_options)
-# driver = webdriver.Chrome()
 driver.get("https://cas.tamu.edu/cas/login?service=https://howdy.tamu.edu/uPortal/Login&renew=true")
 
 username = driver.find_element_by_xpath(xpath="//*[@id=\"username\"]")
-username.send_keys("idatewang")
+username.send_keys("Put Username here")
 
 password = driver.find_element_by_xpath(xpath="//*[@id=\"password\"]")
-password.send_keys("SaiSai7890---")
+password.send_keys("Put Password here")
 
 button = driver.find_element_by_xpath(xpath="//*[@id=\"fm1\"]/button")
 button.click()
@@ -39,16 +41,15 @@ register.click()
 term = driver.find_element_by_xpath(xpath="//*[@id=\"s2id_txt_term\"]/a")
 term.click()
 time.sleep(2)
-term = driver.find_element_by_xpath(xpath="//*[@id=\"202031\"]")
+term = driver.find_element_by_xpath(xpath="//*[@id=\"202031\"]") # for Spring 2020
 term.click()
 
 cont = driver.find_element_by_xpath(xpath="//*[@id=\"term-go\"]")
 cont.click()
 
 time.sleep(2)
-# ok = driver.find_element_by_xpath(xpath="//*[@id=\"notification-center\"]/div/ul[2]/li/div[2]/button")
-# ok.click()
 
+# selects CESE class
 subject = driver.find_element_by_xpath(xpath="//*[@id=\"s2id_txt_subject\"]")
 subject.click()
 time.sleep(3)
@@ -58,6 +59,7 @@ time.sleep(3)
 subject = driver.find_element_by_xpath(xpath="//*[@id=\"CSCE\"]")
 subject.click()
 
+# selects course number i.e. 411
 number = driver.find_element_by_xpath(xpath="//*[@id=\"txt_courseNumber\"]")
 number.send_keys("411")
 
@@ -67,11 +69,9 @@ while True:
 
     time.sleep(5)
     remain = driver.find_element_by_xpath(xpath="//*[@id=\"table1\"]/tbody/tr[2]/td[11]/span[3]/span[2]")
-
-    t = time.localtime()
-    current_time = time.strftime("%H:%M:%S", t)
-
-    print(current_time, "Remaining:", remain.text)
+    
+    # prints remaining seats
+    print("Remaining:", remain.text)
 
     if int(remain.text) != 0:
         add = driver.find_element_by_xpath(xpath="//*[@id=\"addSection20203131260\"]")
