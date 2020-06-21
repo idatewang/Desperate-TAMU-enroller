@@ -1,4 +1,4 @@
-# TAMU Auto class-enrollment tool
+# Auto TAMU class-enrollment tool
 
 ## Reason of the project:
 This was created for fun while I was reloading the TAMU class enrollment page (https://cas.tamu.edu/cas/login?service=https://howdy.tamu.edu/uPortal/Login&renew=true) constantly at 1 AM and hoping to find a seat for CSCE 411 Section 504 XD
